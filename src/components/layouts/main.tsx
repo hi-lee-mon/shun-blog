@@ -1,4 +1,4 @@
-import { Box, Container } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import Head from 'next/head';
 import { Router } from 'next/router';
 
@@ -7,16 +7,15 @@ type Props = {
   router: Router;
 };
 
-const Main = ({ children, router }: Props) => {
+// TODO: routerより、パスを表示する
+const Main = ({ children }: Props) => {
   return (
-    <Box as='main' pb={8}>
+    <Box as='main' m='0 200px'>
       <Head>
         <meta name='viewport' content='width=device-width,initial-scale=1' />
         <title>Shun Blog</title>
       </Head>
-      <Container maxW='container.sm' pt={14}>
-        {children}
-      </Container>
+      <Box px={50}>{children}</Box>
     </Box>
   );
 };

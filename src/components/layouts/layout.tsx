@@ -1,7 +1,8 @@
-import { Box, Container } from '@chakra-ui/react';
-import Head from 'next/head';
+import { Box } from '@chakra-ui/react';
 import { Router } from 'next/router';
+import Footer from './footer';
 import Header from './header';
+import Main from './main';
 
 type Props = {
   children: any;
@@ -11,18 +12,10 @@ type Props = {
 
 const Layout = ({ children, router, path }: Props) => {
   return (
-    <Box>
+    <Box maxW={'1920px'} margin='0 auto'>
       <Header path={path} />
-      <Box as='main'>
-        <Head>
-          <meta name='viewport' content='width=device-width,initial-scale=1' />
-          <title>Shun Blog</title>
-        </Head>
-        <Container maxW='container.sm' pt={14}>
-          {children}
-        </Container>
-      </Box>
-      <Box as='footer'>test</Box>
+      <Main router={router}>{children}</Main>
+      <Footer />
     </Box>
   );
 };
