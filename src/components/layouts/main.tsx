@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { Router } from 'next/router';
 
 type Props = {
-  children: any;
+  children: React.ReactNode;
   router: Router;
 };
 

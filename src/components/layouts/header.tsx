@@ -8,11 +8,10 @@ type LinkItemProps = {
   children: React.ReactNode;
 };
 const LinkItem = ({ href, path, children }: LinkItemProps) => {
-  // TODO:リンクのアニメーションを作成する
   const active = path === href;
   return (
     <NextLink href={href}>
-      <Link color={active ? '#DEDEDE' : '#DEDEDE'} fontSize='lg' fontWeight='bold' px={12} py={2}>
+      <Link bg={active ? '#2e3039' : ''} fontSize='lg' fontWeight='bold' borderRadius={2} px={12} py={2}>
         {children}
       </Link>
     </NextLink>
@@ -26,7 +25,7 @@ const Header = ({ path }: Props) => {
   return (
     <Box as='header' px={24} py={12}>
       <HStack>
-        <NextLink href='#'>
+        <NextLink href='/'>
           <a>
             <Heading as='h1' color='#56A4EC' px={4} py={2} fontSize='xx-large'>
               Shun Blog
@@ -34,13 +33,13 @@ const Header = ({ path }: Props) => {
           </a>
         </NextLink>
         <Spacer />
-        <LinkItem href='#' path={path}>
+        <LinkItem href='/blog' path={path}>
           Blog
         </LinkItem>
-        <LinkItem href='#' path={path}>
-          Dialy
+        <LinkItem href='/diary' path={path}>
+          Diary
         </LinkItem>
-        <LinkItem href='#' path={path}>
+        <LinkItem href='/about' path={path}>
           About
         </LinkItem>
         <Spacer />

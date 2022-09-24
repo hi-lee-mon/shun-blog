@@ -5,15 +5,14 @@ import Header from './header';
 import Main from './main';
 
 type Props = {
-  children: any;
+  children: React.ReactNode;
   router: Router;
-  path: string;
 };
 
-const Layout = ({ children, router, path }: Props) => {
+const Layout = ({ children, router }: Props) => {
   return (
     <Box maxW={'1920px'} margin='0 auto'>
-      <Header path={path} />
+      <Header path={router.asPath} />
       <Main router={router}>{children}</Main>
       <Footer />
     </Box>

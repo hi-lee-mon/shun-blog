@@ -7,7 +7,7 @@ import { theme } from '@/theme/theme';
 function Website({ Component, pageProps, router }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <Layout router={router} path=''>
+      <Layout router={router}>
         <Component {...pageProps} key={router.route} />
       </Layout>
     </ChakraProvider>
