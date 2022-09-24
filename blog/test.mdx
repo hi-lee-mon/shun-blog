@@ -1,0 +1,125 @@
+---
+title: vscodeの使い方
+tags:
+  - react
+  - hooks
+  - javascript
+date: 2022-06-22
+excerpt: vscodeの使い方を説明します
+image: images/hum.jpg
+alt: ハンバーガー
+---
+
+# レスポンシブデザインを実装する方法(h1)
+
+## HTML ファイル(h2)
+
+### 特にない(h3)
+
+- リスト 1
+- リスト 2
+
+1. test1
+2. test2
+
+# メディアクエリとは？
+
+サイトを表示している画面環境を判定して条件を指定できる CSS 機能。
+
+# 実装コード例
+
+## HTML ファイル
+
+head タグに以下の meta タグを追加する。
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+
+※emmet を利用していれば「!」で自動的に挿入される。
+
+## CSS ファイル
+
+```css
+@media screen and (min-width: 768px) {
+  body {
+    background-color: red;
+  }
+}
+```
+
+### @media screen とは？
+
+メディア種別。
+all, print, screen, speech がある。
+スマホや pc 向けのサイトであれば screen になるので基本的に screen を指定すれば OK。
+スマホ、PC のみを想定していて screen 以外の選択肢がない場合は、screen の部分を省略できる。
+
+```css
+@media (min-width: 768px) {
+  body {
+    background-color: red;
+  }
+}
+```
+
+### (min-width:768px)とは？
+
+768px 以上の場合という条件指定。
+
+# メディアクエリ以外のレスポンシブテクニック
+
+## %指定
+
+要素の幅や高さを親要素基準にする。
+すべての要素の幅を%指定すると画面サイズの width が親要素になるためレスポンシブなページを作ることができる。
+例えば画面いっぱいに表示したい場合は width:100%は頻出。
+
+## rem 指定
+
+相対的にフォントの大きさを決める記法。
+r というのは root という意味でルートのフォントを基準に値が決定する。
+したがって rem を利用する際は必ず html タグに font-size を指定する必要がある。
+
+```css
+.html {
+  font-size: 16px;
+}
+```
+
+このとき 1rem は 16px になり、1.5rem で 16px + 8px で 24px になる。
+
+### rem の使い方
+
+```css
+/* モバイルファースト */
+.html {
+  font-size: 16px;
+}
+
+/* タブレット */
+@media (min-width: 768px) {
+  font-size: 20px;
+}
+```
+
+このように画面毎にルートの font-size を変更するだけで、html の子要素では rem を利用しているので文字サイズが変更される。
+
+## .pc_only クラスの使い方
+
+.pc_only クラスや.sp_only などのクラスを付与することで表示非表示を操作する。
+※sp は smartPhone のこと
+
+```css
+@media (min-width: 768px) {
+  .sp_only {
+    display: none;
+  }
+}
+```
+
+## flex
+
+## picture タグ
+
+## em プロパティ

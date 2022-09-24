@@ -10,7 +10,7 @@ type LinkItemProps = {
 const LinkItem = ({ href, path, children }: LinkItemProps) => {
   const active = path === href;
   return (
-    <NextLink href={href}>
+    <NextLink href={href} passHref>
       <Link bg={active ? '#2e3039' : ''} fontSize='lg' fontWeight='bold' borderRadius={2} px={12} py={2}>
         {children}
       </Link>
@@ -23,7 +23,7 @@ type Props = {
 };
 const Header = ({ path }: Props) => {
   return (
-    <Box as='header' px={24} py={12}>
+    <Box as='header' px={24} py={12} id="header">
       <HStack>
         <NextLink href='/'>
           <a>

@@ -11,7 +11,7 @@ type Props = {
 
 const Layout = ({ children, router }: Props) => {
   return (
-    <Box maxW={'1920px'} margin='0 auto'>
+    <Box>
       <Header path={router.asPath} />
       <Main router={router}>{children}</Main>
       <Footer />

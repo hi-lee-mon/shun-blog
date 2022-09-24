@@ -4,8 +4,16 @@
   },
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "next/core-web-vitals", "google", "prettier"],
   "rules": {
-    "require-jsdoc": ["off"], // 任意
+    "require-jsdoc": ["off"],
     "import/order": ["error", { "alphabetize": { "order": "asc" } }],
     "@next/next/no-img-element": ["off"]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.config.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off" //next.config.jsのmdxにてエラーになるため
+      }
+    }
+  ]
 }

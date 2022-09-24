@@ -1,15 +1,16 @@
 import { extendTheme } from '@chakra-ui/react';
 
-export const theme = extendTheme({
-  styles: {
-    global: () => ({
-      body: {
-        bg: '#202023',
-        color: '#DEDEDE',
-      },
-    }),
-  },
-  fonts: {
-    body: "'Noto Sans JP'",
-  },
-});
+const styles = {
+  global: () => ({
+    body: {
+      // bg: '#202023',
+      color: '#DEDEDE',
+    },
+  }),
+};
+
+const fonts = {
+  body: "'Noto Sans JP'",
+};
+
+export const theme = extendTheme({ styles, fonts });
