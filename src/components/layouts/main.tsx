@@ -15,7 +15,7 @@ const Main = ({ children }: Props) => {
         <meta name='viewport' content='width=device-width,initial-scale=1' />
         <title>Shun Blog</title>
       </Head>
-      <Box px={50}>{children}</Box>
+      <Box px={4}>{children}</Box>
     </Box>
   );
 };
