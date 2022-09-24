@@ -51,13 +51,13 @@ const Header = ({ path }: Props) => {
           <Menu>
             <MenuButton as={IconButton} icon={<HamburgerIcon />} size='lg' variant='outline' aria-label='Options' />
             <MenuList>
-              <NextLink href='/' passHref>
+              <NextLink href='/blog' passHref>
                 <MenuItem as={Link}>Blog</MenuItem>
               </NextLink>
-              <NextLink href='/Diary' passHref>
+              <NextLink href='/diary' passHref>
                 <MenuItem as={Link}>Diary</MenuItem>
               </NextLink>
-              <NextLink href='/posts' passHref>
+              <NextLink href='/about' passHref>
                 <MenuItem as={Link}>About</MenuItem>
               </NextLink>
             </MenuList>
