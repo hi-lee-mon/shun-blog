@@ -1,7 +1,7 @@
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { Box, Heading, HStack, IconButton, Link, Menu, MenuButton, MenuItem, MenuList, Spacer } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { GithubIcon } from '@/components/icon/github';
+import GithubIcon from '@/components/icon/github';
 
 type LinkItemProps = {
   href: string;
@@ -30,7 +30,6 @@ const Header = ({ path }: Props) => {
       <HStack>
         <NextLink href='/'>
           <a>
-            {/* <Heading as='h1' color='#56A4EC' py={2} fontSize='xx-large'> */}
             <Heading as='h1' color='#56A4EC' py={2} fontSize={{ base: 'x-large', lg: 'xx-large', xl: 'xx-large' }}>
               Shun Blog
             </Heading>
