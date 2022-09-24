@@ -51,7 +51,7 @@ export default function PostPage({ post }: Props) {
       <Head>
         <title>{Date.parse(post.meta.title)}</title>
       </Head>
-      <Button title='back to lists' onClick={() => router.push('/blog')} mb={4}>
+      <Button title='back to lists' variant='outline' onClick={() => router.push('/blog')} mb={4}>
         一覧へ戻る
       </Button>
       <article>

@@ -5,7 +5,7 @@ import { FC } from 'react';
 export const BackButton: FC = () => {
   const router = useRouter();
   return (
-    <Button alia-label='戻る' onClick={() => router.back()}>
+    <Button aria-label='back to lists' variant='outline' onClick={() => router.back()}>
       戻る
     </Button>
   );

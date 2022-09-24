@@ -23,7 +23,7 @@ type Props = {
 };
 const Header = ({ path }: Props) => {
   return (
-    <Box as='header' px={24} py={12} id="header">
+    <Box as='header' px={24} py={12} id='header'>
       <HStack>
         <NextLink href='/'>
           <a>
@@ -43,7 +43,7 @@ const Header = ({ path }: Props) => {
           About
         </LinkItem>
         <Spacer />
-        <IconButton aria-label='Go Github Page' icon={<GitHubIcon />} size='lg' />
+        <IconButton aria-label='Go to Github Page' variant='outline' icon={<GitHubIcon />} size='lg' />
       </HStack>
     </Box>
   );
