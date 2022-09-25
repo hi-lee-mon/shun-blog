@@ -11,6 +11,7 @@ export const MoveHeaderPositionButton = () => {
       bottom={{ base: 16, lg: 4, xl: 4 }}
       right={{ base: 4, lg: 24, xl: 24 }}
       href='#header'
+      onClick={(e) => e.currentTarget.blur()}
     >
       ↑
     </Button>
