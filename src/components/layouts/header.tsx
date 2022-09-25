@@ -28,6 +28,7 @@ const Header = ({ path }: Props) => {
   return (
     <Box as='header' px={{ base: 4, lg: 28, xl: 28 }} py={12} id='header'>
       <HStack>
+        {/* headline */}
         <NextLink href='/'>
           <a>
             <Heading as='h1' color='#56A4EC' py={2} fontSize={{ base: 'x-large', lg: 'xx-large', xl: 'xx-large' }}>
@@ -36,6 +37,7 @@ const Header = ({ path }: Props) => {
           </a>
         </NextLink>
         <Spacer display={{ base: 'none', lg: 'block', xl: 'block' }} />
+        {/* nav */}
         <LinkItem href='/blog' path={path}>
           Blog
         </LinkItem>
@@ -46,6 +48,7 @@ const Header = ({ path }: Props) => {
           About
         </LinkItem>
         <Spacer />
+        {/* icons */}
         <Box display={{ base: 'block', lg: 'none', xl: 'none' }}>
           <Menu>
             <MenuButton as={IconButton} icon={<HamburgerIcon />} size='lg' variant='outline' aria-label='Options' />
@@ -62,7 +65,14 @@ const Header = ({ path }: Props) => {
             </MenuList>
           </Menu>
         </Box>
-        <IconButton aria-label='Go to Github Page' variant='outline' icon={<GithubIcon />} size='lg' />
+        <IconButton
+          as='a'
+          href='https://github.com/hi-lee-mon/shun-blog/tree/develop'
+          aria-label='Go to Github'
+          variant='outline'
+          icon={<GithubIcon />}
+          size='lg'
+        />
       </HStack>
     </Box>
   );
