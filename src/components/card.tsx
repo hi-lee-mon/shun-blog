@@ -1,24 +1,31 @@
-import { Box, Flex, Heading, Image, Link } from '@chakra-ui/react';
+import { Box, Flex, Heading, Image } from '@chakra-ui/react';
+import styled from '@emotion/styled';
 import NextLink from 'next/link';
 import React, { FC } from 'react';
 import TagLink from './tagLink';
 import { PostMeta } from '@/lib/common';
+
+const StyledCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #56a4ec;
+  border-radius: 8px;
+  max-width: 320px;
+  min-height: 400px;
+  transition: all 0.3s 0s ease;
+  &:hover {
+    box-shadow: 0px 0px 8px 0px #56a4ec;
+  }
+`;
 
 type Props = {
   post: PostMeta;
 };
 const Card: FC<Props> = ({ post }) => {
   return (
-    <Flex
-      flexDirection='column'
-      border='1px solid #56A4EC'
-      borderRadius='8px'
-      maxW='320px'
-      minH='400px'
-      _hover={{ boxShadow: '0px 0px 8px 0px #56a4ec' }}
-    >
+    <StyledCard>
       <NextLink href={`/blog/${post.slug}`} passHref>
-        <Link>
+        <a>
           {/* image */}
           <Image src={`/${post.image}`} alt={post.alt} borderRadius='8px 8px 0 0' />
           <Flex flexDirection='column' px={4} pt={8} gap={1}>
@@ -31,14 +38,14 @@ const Card: FC<Props> = ({ post }) => {
               {post.title}
             </Heading>
           </Flex>
-        </Link>
+        </a>
       </NextLink>
       <Flex flexWrap='wrap' px={4} py={4} pb={8} gap={3}>
         {post.tags.map((tag) => (
           <TagLink key={tag} tag={tag} />
         ))}
       </Flex>
-    </Flex>
+    </StyledCard>
   );
 };
 
