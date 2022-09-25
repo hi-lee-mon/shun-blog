@@ -61,8 +61,8 @@ const Header = ({ path }: Props) => {
         {/* icons */}
         <Box display={{ base: 'block', lg: 'none', xl: 'none' }}>
           <Menu>
-            <MenuButton as={IconButton} icon={<HamburgerIcon />} size='lg' variant='outline' aria-label='Options' />
-            <MenuList bg='#202023'>
+            <MenuButton as={IconButton} icon={<HamburgerIcon />} size='lg' aria-label='Options' />
+            <MenuList bg={colors.gray}>
               <NextLink href='/blog' passHref>
                 <MenuItem as={Link}>Blog</MenuItem>
               </NextLink>
