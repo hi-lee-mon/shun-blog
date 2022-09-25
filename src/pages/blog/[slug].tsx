@@ -49,7 +49,7 @@ export default function PostPage({ post }: Props) {
   return (
     <>
       <Head>
-        <title>{Date.parse(post.meta.title)}</title>
+        <title>{post.meta.title}</title>
       </Head>
       <Button title='back to lists' variant='outline' onClick={() => router.push('/blog')} mb={4}>
         一覧へ戻る

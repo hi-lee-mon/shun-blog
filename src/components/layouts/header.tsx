@@ -49,7 +49,7 @@ const Header = ({ path }: Props) => {
         <Box display={{ base: 'block', lg: 'none', xl: 'none' }}>
           <Menu>
             <MenuButton as={IconButton} icon={<HamburgerIcon />} size='lg' variant='outline' aria-label='Options' />
-            <MenuList>
+            <MenuList bg='#202023'>
               <NextLink href='/blog' passHref>
                 <MenuItem as={Link}>Blog</MenuItem>
               </NextLink>
