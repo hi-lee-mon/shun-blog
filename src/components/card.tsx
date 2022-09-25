@@ -32,7 +32,7 @@ const Card: FC<Props> = ({ post }) => {
           <Flex flexDirection='column' px={4} pt={8} gap={1}>
             {/* date */}
             <Box as='span' fontSize='md'>
-              {post.date} 公開
+              {post.date} 投稿
             </Box>
             {/* title */}
             <Heading as='h2' fontSize='2xl'>

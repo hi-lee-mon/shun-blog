@@ -1,4 +1,4 @@
-import { Box, Button, Center } from '@chakra-ui/react';
+import { Box, Button, Center, Flex } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 // TODO:ESLint解決
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'; // eslint-disable-line
@@ -58,10 +58,11 @@ export default function PostPage({ post }: Props) {
         </Button>
         <article>
           <header>
-            <Center>
-              <Box as='h1' my={10} fontWeight='700' fontSize={{ base: 'x-large', lg: 'xx-large', xl: 'xx-large' }}>
+            <Center flexDirection='column' textAlign='center' my={10}>
+              <Box as='h1' fontWeight='700' fontSize={{ base: 'x-large', lg: 'xx-large', xl: 'xx-large' }}>
                 {post.meta.title}
               </Box>
+              <Box>{post.meta.date} 投稿</Box>
             </Center>
           </header>
           <MDXRemote {...post.source} components={{ YouTube, Image }} />
