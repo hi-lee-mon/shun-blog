@@ -65,7 +65,7 @@ export default function PostPage({ post }: Props) {
               <Box>{post.meta.date} 投稿</Box>
             </Center>
           </header>
-          <MDXRemote {...post.source} components={{ YouTube, Image }} />
+          <MDXRemote {...post.source} components={{ YouTube, Image, Center }} />
         </article>
         <MoveHeaderPositionButton />
       </Section>
