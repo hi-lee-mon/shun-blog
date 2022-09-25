@@ -1,10 +1,16 @@
 import { extendTheme } from '@chakra-ui/react';
 
+export const colors = {
+  blcak: '#202023',
+  white: '#DEDEDE',
+  gray: '#2e3039',
+};
+
 const styles = {
   global: () => ({
     body: {
-      bg: '#202023',
-      color: '#DEDEDE',
+      bg: colors.blcak,
+      color: colors.white,
     },
   }),
 };
