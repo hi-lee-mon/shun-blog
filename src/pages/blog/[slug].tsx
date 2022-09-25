@@ -1,4 +1,4 @@
-import { Box, Button, Center, Flex } from '@chakra-ui/react';
+import { Box, Button, Center } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 // TODO:ESLint解決
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'; // eslint-disable-line
