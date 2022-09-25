@@ -60,7 +60,7 @@ const Header = ({ path }: Props) => {
         <Spacer />
         {/* icons */}
         <Box display={{ base: 'block', lg: 'none', xl: 'none' }}>
-          <Menu>
+          <Menu autoSelect={false}>
             <MenuButton as={IconButton} icon={<HamburgerIcon />} size='lg' variant='outline' aria-label='Options' />
             <MenuList bg={colors.blcak}>
               <NextLink href='/blog' passHref>
