@@ -1,9 +1,9 @@
-import { Text } from '@chakra-ui/react';
+import { Center, SimpleGrid, Text } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
+import Card from '@/components/card';
+import Section from '@/components/section';
 import { getPath, getAllPosts, PostMeta } from '@/lib/common';
-import Blog from '@/pages/blog';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const path = getPath('blog');
@@ -35,17 +35,23 @@ type Props = {
 };
 
 export default function TagPage({ slug, posts }: Props) {
-  const router = useRouter();
-  const selectedTag = router.asPath.split('/').at(-1);
   return (
     <>
       <Head>
         <title>Tag:{slug}</title>
       </Head>
-      <Text fontSize='lg' py={4}>
-        選択中のタグ：{selectedTag}
-      </Text>
-      <Blog posts={posts} />
+      <Section>
+        <Text fontSize='lg' py={4} pl={{ base: 0, lg: 12, xl: 40 }}>
+          選択中のタグ： {slug}
+        </Text>
+        <Center>
+          <SimpleGrid columns={{ base: 1, lg: 2, xl: 3 }} spacingY={8} spacingX={4}>
+            {posts.map((post) => (
+              <Card key={post.slug} post={post} />
+            ))}
+          </SimpleGrid>
+        </Center>
+      </Section>
     </>
   );
 }

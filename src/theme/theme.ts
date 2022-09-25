@@ -16,8 +16,16 @@ const styles = {
   }),
 };
 
+const breakpoints = {
+  sm: '30em',
+  md: '48em',
+  lg: '62em',
+  xl: '1620',
+  '2xl': '96em',
+};
+
 const fonts = {
   body: "'Noto Sans JP'",
 };
 
-export const theme = extendTheme({ styles, fonts });
+export const theme = extendTheme({ styles, fonts, breakpoints });
