@@ -2,7 +2,7 @@ import { extendTheme } from '@chakra-ui/react';
 
 export const colors = {
   blcak: '#202023',
-  white: '#DEDEDE',
+  white: '#DCDCDC',
   gray: '#2e3039',
   blue: '#56a4ec',
 };
