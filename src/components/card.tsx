@@ -41,7 +41,7 @@ const Card: FC<Props> = ({ post }) => {
           </Flex>
         </a>
       </NextLink>
-      <Flex flexWrap='wrap' px={4} py={4} pb={8} gap={3}>
+      <Flex flexWrap='wrap' px={4} py={8} gap={3}>
         {post.tags.map((tag) => (
           <TagLink key={tag} tag={tag} />
         ))}
