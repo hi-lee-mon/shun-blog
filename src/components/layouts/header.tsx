@@ -2,6 +2,7 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 import { Box, Heading, HStack, IconButton, Link, Menu, MenuButton, MenuItem, MenuList, Spacer } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import GithubIcon from '@/components/github';
+import { colors } from '@/theme/theme';
 
 type LinkItemProps = {
   href: string;
@@ -13,7 +14,16 @@ const LinkItem = ({ href, path, children }: LinkItemProps) => {
   return (
     <Box display={{ base: 'none', lg: 'block', xl: 'block' }}>
       <NextLink href={href} passHref>
-        <Link bg={active ? '#2e3039' : ''} fontSize='lg' fontWeight='bold' borderRadius={2} px={12} py={2}>
+        <Link
+          bg={active ? '#2e3039' : ''}
+          fontSize='lg'
+          fontWeight='bold'
+          borderRadius={2}
+          px={12}
+          py={2}
+          transition='all 0.5s ease'
+          _hover={{ backgroundColor: colors.blue }}
+        >
           {children}
         </Link>
       </NextLink>
@@ -31,7 +41,7 @@ const Header = ({ path }: Props) => {
         {/* headline */}
         <NextLink href='/'>
           <a>
-            <Heading as='h1' color='#56A4EC' py={2} fontSize={{ base: 'x-large', lg: 'xx-large', xl: 'xx-large' }}>
+            <Heading as='h1' color={colors.blue} py={2} fontSize={{ base: 'x-large', lg: 'xx-large', xl: 'xx-large' }}>
               Shun Blog
             </Heading>
           </a>

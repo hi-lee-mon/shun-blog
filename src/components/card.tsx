@@ -4,6 +4,7 @@ import NextLink from 'next/link';
 import React, { FC } from 'react';
 import TagLink from './tagLink';
 import { PostMeta } from '@/lib/common';
+import { colors } from '@/theme/theme';
 
 const StyledCard = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ const StyledCard = styled.div`
   min-height: 400px;
   transition: all 0.3s 0s ease;
   &:hover {
-    box-shadow: 0px 0px 8px 0px #56a4ec;
+    box-shadow: 0px 0px 8px 0px ${colors.blue};
   }
 `;
 

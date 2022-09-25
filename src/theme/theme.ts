@@ -4,6 +4,7 @@ export const colors = {
   blcak: '#202023',
   white: '#DEDEDE',
   gray: '#2e3039',
+  blue: '#56a4ec',
 };
 
 const styles = {
