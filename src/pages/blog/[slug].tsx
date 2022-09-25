@@ -1,4 +1,4 @@
-import { Box, Button, Center, Text } from '@chakra-ui/react';
+import { Box, Button, Center } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 // TODO:ESLint解決
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'; // eslint-disable-line
@@ -14,7 +14,6 @@ import Section from '@/components/section';
 import YouTube from '@/components/youtube';
 import { getPath, getPostFromSlug, getSlugs, PostMeta } from '@/lib/common';
 import 'highlight.js/styles/atom-one-dark.css';
-import { colors } from '@/theme/theme';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const targetPath = getPath('blog');

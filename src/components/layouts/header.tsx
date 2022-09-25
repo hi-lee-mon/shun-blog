@@ -59,6 +59,14 @@ const Header = ({ path }: Props) => {
         </LinkItem>
         <Spacer />
         {/* icons */}
+        <IconButton
+          as='a'
+          href='https://github.com/hi-lee-mon/shun-blog/tree/develop'
+          aria-label='Go to Github'
+          variant='outline'
+          icon={<GithubIcon />}
+          size='lg'
+        />
         <Box display={{ base: 'block', lg: 'none', xl: 'none' }}>
           <Menu autoSelect={false}>
             <MenuButton as={IconButton} icon={<HamburgerIcon />} size='lg' variant='outline' aria-label='Options' />
@@ -75,14 +83,6 @@ const Header = ({ path }: Props) => {
             </MenuList>
           </Menu>
         </Box>
-        <IconButton
-          as='a'
-          href='https://github.com/hi-lee-mon/shun-blog/tree/develop'
-          aria-label='Go to Github'
-          variant='outline'
-          icon={<GithubIcon />}
-          size='lg'
-        />
       </HStack>
     </Box>
   );
