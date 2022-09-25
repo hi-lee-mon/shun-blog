@@ -1,4 +1,5 @@
 import { Heading, Link, List, ListItem, Text } from '@chakra-ui/react';
+import { colors } from '@/theme/theme';
 type H1 = React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 type H2 = React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 type H3 = React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
@@ -20,6 +21,6 @@ export const MDXComponents = {
   ul: (props: Ul) => <List px={8} styleType='disc' {...props} />,
   ol: (props: Ol) => <List as='ol' px={7} styleType='decimal' {...props} />,
   li: (props: Li) => <ListItem fontSize='16px' my={1} {...props} />,
-  a: (props: A) => <Link color='#ffc300' {...props}></Link>,
+  a: (props: A) => <Link color={colors.yellow} {...props}></Link>,
   // image: (props: any) => <Image maxW='100%' {...props} />,
 };

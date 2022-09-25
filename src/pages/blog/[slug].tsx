@@ -1,4 +1,4 @@
-import { Button } from '@chakra-ui/react';
+import { Box, Button, Center, Text } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 // TODO:ESLint解決
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'; // eslint-disable-line
@@ -14,6 +14,7 @@ import Section from '@/components/section';
 import YouTube from '@/components/youtube';
 import { getPath, getPostFromSlug, getSlugs, PostMeta } from '@/lib/common';
 import 'highlight.js/styles/atom-one-dark.css';
+import { colors } from '@/theme/theme';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const targetPath = getPath('blog');
@@ -57,6 +58,13 @@ export default function PostPage({ post }: Props) {
           一覧へ戻る
         </Button>
         <article>
+          <header>
+            <Center>
+              <Box as='h1' my={10} fontWeight='700' fontSize={{ base: 'x-large', lg: 'xx-large', xl: 'xx-large' }}>
+                {post.meta.title}
+              </Box>
+            </Center>
+          </header>
           <MDXRemote {...post.source} components={{ YouTube, Image }} />
         </article>
         <MoveHeaderPositionButton />

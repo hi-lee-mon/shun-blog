@@ -5,6 +5,7 @@ export const colors = {
   white: '#DCDCDC',
   gray: '#2e3039',
   blue: '#56a4ec',
+  yellow: '#ffc300',
 };
 
 const styles = {
