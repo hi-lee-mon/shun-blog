@@ -10,6 +10,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
 import { MoveHeaderPositionButton } from '@/components/moveHeaderPositionButton';
+import Section from '@/components/section';
 import YouTube from '@/components/youtube';
 import { getPath, getPostFromSlug, getSlugs, PostMeta } from '@/lib/common';
 import 'highlight.js/styles/atom-one-dark.css';
@@ -51,13 +52,15 @@ export default function PostPage({ post }: Props) {
       <Head>
         <title>{post.meta.title}</title>
       </Head>
-      <Button title='back to lists' variant='outline' onClick={() => router.push('/blog')} mb={4}>
-        一覧へ戻る
-      </Button>
-      <article>
-        <MDXRemote {...post.source} components={{ YouTube, Image }} />
-      </article>
-      <MoveHeaderPositionButton />
+      <Section>
+        <Button title='back to lists' variant='outline' onClick={() => router.push('/blog')} mb={4}>
+          一覧へ戻る
+        </Button>
+        <article>
+          <MDXRemote {...post.source} components={{ YouTube, Image }} />
+        </article>
+        <MoveHeaderPositionButton />
+      </Section>
     </>
   );
 }
