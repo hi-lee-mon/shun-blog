@@ -1,4 +1,5 @@
 import { Router } from 'next/router';
+import { MoveHeaderPositionButton } from '../moveHeaderPositionButton';
 import Footer from './footer';
 import Header from './header';
 import Main from './main';
@@ -12,7 +13,10 @@ const Layout = ({ children, router }: Props) => {
   return (
     <>
       <Header path={router.asPath} />
-      <Main router={router}>{children}</Main>
+      <Main router={router}>
+        {children}
+        <MoveHeaderPositionButton />
+      </Main>
       <Footer />
     </>
   );

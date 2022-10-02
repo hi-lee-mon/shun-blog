@@ -9,7 +9,6 @@ import { useRouter } from 'next/router';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
-import { MoveHeaderPositionButton } from '@/components/moveHeaderPositionButton';
 import Section from '@/components/section';
 import YouTube from '@/components/youtube';
 import { getPath, getPostFromSlug, getSlugs, PostMeta } from '@/lib/common';
@@ -67,7 +66,6 @@ export default function PostPage({ post }: Props) {
           </header>
           <MDXRemote {...post.source} components={{ YouTube, Image, Center }} />
         </article>
-        <MoveHeaderPositionButton />
       </Section>
     </>
   );

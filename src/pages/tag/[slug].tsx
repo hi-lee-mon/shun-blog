@@ -1,9 +1,12 @@
-import { Center, SimpleGrid, Text } from '@chakra-ui/react';
+import { Center, Flex, Link, SimpleGrid, Text } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
+import NextLink from 'next/link';
+import { AiOutlineRight } from 'react-icons/ai';
 import Card from '@/components/card';
 import Section from '@/components/section';
 import { getPath, getAllPosts, PostMeta } from '@/lib/common';
+import { colors } from '@/theme/theme';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const path = getPath('blog');
@@ -41,9 +44,15 @@ export default function TagPage({ slug, posts }: Props) {
         <title>Tag:{slug}</title>
       </Head>
       <Section>
-        <Text fontSize='lg' py={4} pl={{ base: 0, lg: 12, xl: 40 }}>
-          選択中のタグ： {slug}
-        </Text>
+        <Flex py={4} pl={{ base: 0, lg: 12, xl: 40 }} alignItems='center'>
+          <NextLink href='/blog' passHref>
+            <Link display='flex'>Blog</Link>
+          </NextLink>
+          <AiOutlineRight style={{ margin: '0 8px' }} />
+          <Text fontSize='lg' color={colors.yellow}>
+            {slug}
+          </Text>
+        </Flex>
         <Center>
           <SimpleGrid columns={{ base: 1, lg: 2, xl: 3 }} spacingY={8} spacingX={4}>
             {posts.map((post) => (
