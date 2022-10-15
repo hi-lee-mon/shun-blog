@@ -16,7 +16,7 @@ const DiaryCard: FC<DiaryCardProps> = ({ post }) => (
       display='block'
       w={{ base: '100%', lg: '70%', xl: '70%' }}
       transition='all 0.3s 0s ease'
-      _hover={{ textDecoration: 'none', transform: 'scale(1.1)' }}
+      _hover={{ textDecoration: 'none', transform: { base: 'scale(1.05)', lg: 'scale(1.1)', xl: 'scale(1.1)' } }}
     >
       <Flex flexDirection='column' border='1px' borderRadius='10px' padding='16px'>
         <Text as='p'>{post.date}</Text>
