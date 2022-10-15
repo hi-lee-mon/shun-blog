@@ -46,7 +46,7 @@ export const getPostFromSlug = (slug: string, targetPath: string): Post => {
       tags: (data.tags ?? []).sort(),
       date: dayjs(data.date ?? new Date()).format('YYYY-MM-DD'),
       image: data.image ?? null,
-      alt: data.alt,
+      alt: data.alt ?? 'Sorry. I forgot to mention the description.',
     },
   };
 };

@@ -30,7 +30,6 @@ const Section = ({ children, delay = '0s' }: Props) => (
     transition={`0.8s ${delay} ease-out`}
     // transitionDuration='0.8s'
     // transitionDelay={delay}
-    mb={6}
   >
     {children}
   </StyledDiv>
