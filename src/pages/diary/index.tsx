@@ -1,4 +1,4 @@
-import { Center, Flex, Heading, Link, Stack, Text } from '@chakra-ui/react';
+import { Center, Flex, Heading, HStack, Link, Stack, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import NextLink from 'next/link';
@@ -19,7 +19,16 @@ const DiaryCard: FC<DiaryCardProps> = ({ post }) => (
       _hover={{ textDecoration: 'none', transform: { base: 'scale(1.05)', lg: 'scale(1.1)', xl: 'scale(1.1)' } }}
     >
       <Flex flexDirection='column' border='1px' borderRadius='10px' padding='16px'>
-        <Text as='p'>{post.date}</Text>
+        <HStack justifyContent='space-between'>
+          <Text as='span'>{post.date}</Text>
+          <HStack>
+            {post.tags.map((tag) => (
+              <Text key={tag} as='span' fontSize='24px'>
+                {tag}
+              </Text>
+            ))}
+          </HStack>
+        </HStack>
         <Heading as='h2' fontSize='24px'>
           {post.title}
         </Heading>
