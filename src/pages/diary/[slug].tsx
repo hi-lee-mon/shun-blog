@@ -52,20 +52,22 @@ export default function PostPage({ post }: Props) {
         <title>{post.meta.title}</title>
       </Head>
       <Section>
-        <Button title='back to lists' variant='outline' onClick={() => router.push('/diary')} mb={4}>
-          一覧へ戻る
-        </Button>
-        <article>
-          <header>
-            <Center flexDirection='column' textAlign='center' my={10}>
-              <Box as='h1' fontWeight='700' fontSize={{ base: 'x-large', lg: 'xx-large', xl: 'xx-large' }}>
-                {post.meta.title}
-              </Box>
-              <Box>{post.meta.date} 投稿</Box>
-            </Center>
-          </header>
-          <MDXRemote {...post.source} components={{ YouTube, Image, Center }} />
-        </article>
+        <Box maxWidth={900} margin='0 auto'>
+          <Button title='back to lists' variant='outline' onClick={() => router.push('/diary')} mb={4}>
+            一覧へ戻る
+          </Button>
+          <article>
+            <header>
+              <Center flexDirection='column' textAlign='center' my={10}>
+                <Box as='h1' fontWeight='700' fontSize={{ base: 'x-large', lg: 'xx-large', xl: 'xx-large' }}>
+                  {post.meta.title}
+                </Box>
+                <Box>{post.meta.date} 投稿</Box>
+              </Center>
+            </header>
+            <MDXRemote {...post.source} components={{ YouTube, Image, Center }} />
+          </article>
+        </Box>
       </Section>
     </>
   );
