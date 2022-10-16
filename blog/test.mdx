@@ -1,128 +1,83 @@
 ---
-title: vscodeの使い方を説明する記事
+title: Next.jsで個人ブログを作った
 tags:
-  - react
-  - hooks
-  - javascript
-date: 2022-06-22
-excerpt: vscodeの使い方を説明します
+  - Next.js
+date: 2022-10-16
+excerpt:
 image: images/hum.jpg
 alt: ハンバーガー
 ---
 
-# レスポンシブデザインを実装する方法(h1)
+こんにちは。しゅんです。ついに念願の個人ブログが完成しました。この blog ページは技術的な内容を投稿するページになります。記念すべき 1 号記事はこのブログの作成について書きたいと思います。<br/>
+※ブログは駆け足で作成したこともありふんわり作っている部分が多いです。ひとまず記事として起こしてみて不明点は少しずつ調べて解決していく方針としようと思います。
 
-<Center>
-  <Image src='/images/hum.jpg' alt='ハンバーガー' width='1920px' height='1080px' />
-</Center>
-dfdfd ## HTML ファイル(h2)
+# 技術
 
-### 特にない(h3)
+Next.js を使って作りたかったので Next.js と vercel の構成で作成しました。デザインには Chakra UI を利用しています。記事はプロジェクトのソースコードと一緒に GitHub のリポジトリにため込むようになっています。
+記事は MDX というマークダウンに JSX を挿入できる形式で記述しています。それを実現するライブラリとして MDX を使っています。公式でサポートされているので導入が簡単です。(英語が苦手なことで実際は結構苦戦してしまった)
 
-- リスト 1
-- リスト 2
+- [Using MDX with Next.js](https://nextjs.org/docs/advanced-features/using-mdx)
 
-1. test1
-2. test2
+次からは実装を深堀して見ていきます。
 
-# メディアクエリとは？
+# MDX の導入
 
-サイトを表示している画面環境を判定して条件を指定できる CSS 機能。
+とっても簡単に導入ができるのですが、英語が苦手でドキュメント読むの渋っていたら時間がかかってしまいました。以下に実装の手順を記載します。※具体的なバージョンは commit の履歴と package.json を参照
 
-# 実装コード例
+1. 必要なパッケージのインストール
 
-## HTML ファイル
-
-head タグに以下の meta タグを追加する。
-
-```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+yarn add @mdx-js/react next-mdx-remote
+yarn add -D @mdx-js/loader @next/mdx
 ```
 
-※emmet を利用していれば「!」で自動的に挿入される。
+2. next.config.js を書き換える
 
-## CSS ファイル
+```ts
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  optimizeFonts: true,
+};
 
-```css
-@media screen and (min-width: 768px) {
-  body {
-    background-color: red;
-  }
-}
+module.exports = nextConfig;
+
+// mdxの設定
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+    // If you use `MDXProvider`, uncomment the following line.
+    providerImportSource: '@mdx-js/react',
+  },
+});
+module.exports = withMDX({
+  // Append the default value with md extensions
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+});
 ```
 
-### @media screen とは？
+※この記事書いている中で気づいたのですが、「providerImportSource: '@mdx-js/react',」をコメントアウトしていましたが動いてました。謎。コメントにある通り uncomment しましょう。
 
-メディア種別。
-all, print, screen, speech がある。
-スマホや pc 向けのサイトであれば screen になるので基本的に screen を指定すれば OK。
-スマホ、PC のみを想定していて screen 以外の選択肢がない場合は、screen の部分を省略できる。
+3. eslint に怒られたら
 
-```css
-@media (min-width: 768px) {
-  body {
-    background-color: red;
-  }
-}
+公式に記載の方法で next.config.js を編集したのに怒られてしまったので next.config.js だけ対象のルール適用外にしました。overrides プロパティを利用したかったという理由で以下のように eslintrc を編集しています。
+
+```json
+  "overrides": [
+    {
+      "files": ["**/*.config.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off" //next.config.jsのmdxにてエラーになるため
+      }
+    }
+  ]
 ```
 
-### (min-width:768px)とは？
+※ちなみに zenn でおなじみのよしこさんの記事をみて overrides を知りました。
 
-768px 以上の場合という条件指定。
+[React+TS プロジェクトで便利だった Lint/Format 設定紹介](https://zenn.dev/yoshiko/articles/0994f518015c04#overrides)
 
-# メディアクエリ以外のレスポンシブテクニック
-
-## %指定
-
-要素の幅や高さを親要素基準にする。
-すべての要素の幅を%指定すると画面サイズの width が親要素になるためレスポンシブなページを作ることができる。
-例えば画面いっぱいに表示したい場合は width:100%は頻出。
-
-## rem 指定
-
-相対的にフォントの大きさを決める記法。
-r というのは root という意味でルートのフォントを基準に値が決定する。
-したがって rem を利用する際は必ず html タグに font-size を指定する必要がある。
-
-```css
-.html {
-  font-size: 16px;
-}
-```
-
-このとき 1rem は 16px になり、1.5rem で 16px + 8px で 24px になる。
-
-### rem の使い方
-
-```css
-/* モバイルファースト */
-.html {
-  font-size: 16px;
-}
-
-/* タブレット */
-@media (min-width: 768px) {
-  font-size: 20px;
-}
-```
-
-このように画面毎にルートの font-size を変更するだけで、html の子要素では rem を利用しているので文字サイズが変更される。
-
-## .pc_only クラスの使い方
-
-.pc_only クラスや.sp_only などのクラスを付与することで表示非表示を操作する。
-※sp は smartPhone のこと
-
-```css
-@media (min-width: 768px) {
-  .sp_only {
-    display: none;
-  }
-}
-```
-
-## flex
-
-## picture タグ
-
-## em プロパティ
+他の記事も大変勉強になるのでおススメです。
