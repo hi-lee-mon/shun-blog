@@ -16,7 +16,7 @@ export const MDXComponents = {
   // h4: (props: any) => <Heading as='h4' size='sm' mt='16' mb='3' {...props} />,
   // h5: (props: any) => <Heading as='h5' size='xs' mt='3' mb='2' {...props} />,
   // h6: (props: any) => <Heading as='h6' size='xs' mt='1' mb='1' {...props} />,
-  p: (props: P) => <Text as='p' fontSize='16px' mb={2} {...props} />,
+  p: (props: P) => <Text as='p' fontSize='16px' mb={6} {...props} />,
   // pre: (props: any) => <Box fullwi {...props} />,
   ul: (props: Ul) => <List px={8} styleType='disc' {...props} />,
   ol: (props: Ol) => <List as='ol' px={7} styleType='decimal' {...props} />,
