@@ -10,6 +10,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
 import Section from '@/components/section';
+import SpImage from '@/components/spImage';
 import YouTube from '@/components/youtube';
 import { getPath, getPostFromSlug, getSlugs, PostMeta } from '@/lib/common';
 import 'highlight.js/styles/atom-one-dark.css';
@@ -65,7 +66,7 @@ export default function PostPage({ post }: Props) {
                 <Box>{post.meta.date} 投稿</Box>
               </Center>
             </header>
-            <MDXRemote {...post.source} components={{ YouTube, Image, Center }} />
+            <MDXRemote {...post.source} components={{ YouTube, Image, Center, SpImage }} />
           </article>
         </Box>
       </Section>
