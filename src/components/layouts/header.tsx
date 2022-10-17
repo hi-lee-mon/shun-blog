@@ -40,11 +40,15 @@ const Header = ({ path }: Props) => {
       <HStack>
         {/* headline */}
         <NextLink href='/'>
-          <a>
+          <Link
+            display='block'
+            transition='all 0.1s 0s ease'
+            _hover={{ textDecoration: 'none', transform: { base: 'rotateZ(5deg)', lg: 'rotateZ(5deg)', xl: 'rotateZ(5deg)' } }}
+          >
             <Heading as='h1' color={colors.blue} py={2} fontSize={{ base: 'x-large', lg: 'xx-large', xl: 'xx-large' }}>
               Shun Blog
             </Heading>
-          </a>
+          </Link>
         </NextLink>
         <Spacer display={{ base: 'none', lg: 'block', xl: 'block' }} />
         {/* nav */}
